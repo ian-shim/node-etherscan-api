@@ -169,8 +169,8 @@ class EtherscanApi {
    * Returns a list of 'ERC20' token transfers by address.
    * Returns up to a maximum of the last 10000 transactions only.
    * @param {string} address Account address
-   * @param {string} contractAddress Contract address
    * @param {object} [options]
+   * @param {string} [options.contractAddress] Contract address
    * @param {object} [options.startBlock] Starting block number to retrieve
    * results
    * @param {string|number} [options.endBlock] Ending block number to retrieve
@@ -180,14 +180,14 @@ class EtherscanApi {
    * @param {"asc"|"desc"} [options.sort] Sort type
    * @returns {Promise<object[]>}
    */
-  getERC20Transfers(address, contractAddress, options = {}) {
-    const { startBlock, endBlock, offset, page, sort } = options
+  getERC20Transfers(address, options = {}) {
+    const { contractAddress, startBlock, endBlock, offset, page, sort } = options
 
     return this._createRequest({
       module:     MODULES.ACCOUNT,
       action:     ACTIONS.GET_ERC20_TRANSFERS,
       address,
-      contractAddress,
+      contractAddress: contractAddress,
       startblock: startBlock,
       endblock:   endBlock,
       offset:     offset,
@@ -200,8 +200,8 @@ class EtherscanApi {
    * Returns a list of 'ERC721' transfers by address.
    * Returns up to a maximum of the last 10000 transactions only.
    * @param {string} address Account address
-   * @param {string} contractAddress Contract address
    * @param {object} [options]
+   * @param {string} [options.contractAddress] Contract address
    * @param {object} [options.startBlock] Starting block number to retrieve
    * results
    * @param {string|number} [options.endBlock] Ending block number to retrieve
@@ -211,14 +211,14 @@ class EtherscanApi {
    * @param {"asc"|"desc"} [options.sort] Sort type
    * @returns {Promise<object[]>}
    */
-  getERC721Transfers(address, contractAddress, options = {}) {
-    const { startBlock, endBlock, offset, page, sort } = options
+  getERC721Transfers(address, options = {}) {
+    const { contractAddress, startBlock, endBlock, offset, page, sort } = options
 
     return this._createRequest({
       module:     MODULES.ACCOUNT,
       action:     ACTIONS.GET_ERC721_TRANSFERS,
       address,
-      contractAddress,
+      contractAddress: contractAddress,
       startblock: startBlock,
       endblock:   endBlock,
       offset:     offset,

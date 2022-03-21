@@ -385,8 +385,8 @@ declare class EtherscanApi {
    * Returns a list of 'ERC20' token transfers by address.
    * Returns up to a maximum of the last 10000 transactions only.
    * @param {string} address Account address
-   * @param {string} contractAddress Contract address
    * @param {object} [options]
+   * @param {string} [options.contractAddress] Contract address
    * @param {object} [options.startBlock] Starting block number to retrieve
    * results
    * @param {string|number} [options.endBlock] Ending block number to retrieve
@@ -398,8 +398,8 @@ declare class EtherscanApi {
    */
   getERC20Transfers(
     address: string,
-    contractAddress: string,
     options?: {
+      contractAddress?: string,
       startBlock?: number
       endBlock?: number
       offset?: number
@@ -412,8 +412,8 @@ declare class EtherscanApi {
    * Returns a list of 'ERC721' transfers by address.
    * Returns up to a maximum of the last 10000 transactions only.
    * @param {string} address Account address
-   * @param {string} contractAddress Contract address
    * @param {object} [options]
+   * @param {string} [options.contractAddress] Contract address
    * @param {object} [options.startBlock] Starting block number to retrieve
    * results
    * @param {string|number} [options.endBlock] Ending block number to retrieve
@@ -425,8 +425,8 @@ declare class EtherscanApi {
    */
   getERC721Transfers(
     address: string,
-    contractAddress: string,
     options?: {
+      contractAddress?: string,
       startBlock?: number
       endBlock?: number
       offset?: number
