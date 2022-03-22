@@ -36,12 +36,12 @@ type UNITS = {
  * The typings based on solidity specification:
  * http://solidity.readthedocs.io/en/develop/abi-spec.html#json
  */
-type AbiItemDescription = AbiFunctionDescription | AbiEventDescription
+export type AbiItemDescription = AbiFunctionDescription | AbiEventDescription
 
 /**
  * Application binary interface's function description
  */
-interface AbiFunctionDescription {
+export interface AbiFunctionDescription {
   // The type of the function
   // The type can be omitted, defaulting to "function".
   type?: 'function' | 'constructor' | 'fallback'
@@ -70,7 +70,7 @@ interface AbiFunctionDescription {
 /**
  * Type of an event description
  */
-interface AbiEventDescription {
+export interface AbiEventDescription {
   // Type always "event"
   type: 'event'
   // The name of the event;
@@ -84,7 +84,7 @@ interface AbiEventDescription {
 /**
  * Type of input/output of an ABI item description
  */
-interface AbiItemIO {
+export interface AbiItemIO {
   // The name of the parameter
   name: string
   // The canonical type of the parameter (more below)
@@ -96,7 +96,7 @@ interface AbiItemIO {
 /**
  * Type of input/output of an ABI event description
  */
-interface AbiEventIO extends AbiItemIO {
+export interface AbiEventIO extends AbiItemIO {
   // "true" if the field is part of the log’s topics, false if it one of the
   // log’s data segment.
   indexed?: boolean
@@ -105,7 +105,7 @@ interface AbiEventIO extends AbiItemIO {
 /**
  * Ether price result type
  */
-type EtherPrice = {
+export type EtherPrice = {
   ethbtc: string
   ethbtc_timestamp: string
   ethusd: string
@@ -115,7 +115,7 @@ type EtherPrice = {
 /**
  * Block info
  */
-interface BlockInfo {
+export interface BlockInfo {
   blockNumber: string
   blockReward: string
   timeStamp: string
@@ -124,7 +124,7 @@ interface BlockInfo {
 /**
  * Block reward info
  */
-interface BlockRewardInfo extends BlockInfo {
+export interface BlockRewardInfo extends BlockInfo {
   blockMiner: string
   uncleInclusionReward: string
   uncles: Array<{
@@ -137,7 +137,7 @@ interface BlockRewardInfo extends BlockInfo {
 /**
  * Geth block info
  */
-interface GethBlockInfo {
+export interface GethBlockInfo {
   difficulty: string
   extraData: string
   gasLimit: string
@@ -163,7 +163,7 @@ interface GethBlockInfo {
 /**
  * Type of an event
  */
-interface EventDescription {
+export interface EventDescription {
   address: string
   topics: string[]
   data: string
@@ -181,7 +181,7 @@ interface EventDescription {
 /**
  * Transaction info
  */
-type TransactionDescription = {
+export type TransactionDescription = {
   blockHash: string
   blockNumber: string
   confirmations?: string
@@ -208,7 +208,7 @@ type TransactionDescription = {
 /**
  * Internal transaction info
  */
-type InternalTransactionDescription = {
+export type InternalTransactionDescription = {
   blockNumber: string
   timeStamp: string
   hash: string
@@ -228,7 +228,7 @@ type InternalTransactionDescription = {
 /**
  * Token transfer info
  */
-type TokenTransferDescription = {
+export type TokenTransferDescription = {
   blockHash: string
   blockNumber: string
   confirmations?: string
@@ -255,7 +255,7 @@ type TokenTransferDescription = {
 /**
  * Type of transaction receipt
  */
-type TransactionReceipt = {
+export type TransactionReceipt = {
   blockHash: string
   blockNumber: string
   contractAddress?: any
@@ -281,7 +281,7 @@ type NETWORKS = {
 /**
  * The Etherscan API
  */
-declare class EtherscanApi {
+export declare class EtherscanApi {
   /**
    * @class EtherscanApi
    * @constructor
@@ -717,9 +717,3 @@ declare class EtherscanApi {
    */
   getEtherLastPrice(): Promise<EtherPrice>
 }
-
-declare namespace EtherscanApi {
-
-}
-
-export = EtherscanApi
